@@ -12,6 +12,11 @@ class App extends Component {
     }
 
   }
+
+  handleOnAdd () {
+    console.log('handleOnAdd');
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,7 +24,7 @@ class App extends Component {
         <br/>
         <h1>{this.state.counter}</h1>
         <h2>{this.state.counterrrrr}</h2>
-        <button type="button">Click Me!</button>
+        <button type="button" onClick={() => this.handleOnAdd()}>Click Me!</button>
       </div>
     );
   }
