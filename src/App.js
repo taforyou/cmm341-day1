@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Button from 'antd/lib/button';
 import './App.css';
 
 class App extends Component {
@@ -7,7 +8,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      counter : 99,
+      counter : 0,
       counterrrrr : 88,
     }
 
@@ -40,7 +41,7 @@ class App extends Component {
         <br/>
         <h1>{this.state.counter}</h1>
         <h2>{this.state.counterrrrr}</h2>
-        <button type="button" onClick={() => this.handleOnAdd()}>Click Me!</button>
+        <Button type="primary" onClick={() => this.handleOnAdd()}>Click Me!</Button>
       </div>
     );
   }
