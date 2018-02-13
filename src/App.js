@@ -14,7 +14,16 @@ class App extends Component {
   }
 
   handleOnAdd () {
-    console.log('handleOnAdd');
+    console.log('handleOnAdd')
+    // ค่าเปลัี่ยนนะแต่ render() ไม่ทำงานมันจึงไม่ show ค่าใหม่
+    //this.state.counter++
+    //console.log(this.state.counter)
+    let temp = this.state.counter
+    temp++
+    this.setState({
+      counter : temp
+    })
+    
   }
 
   render() {
