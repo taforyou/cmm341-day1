@@ -8,6 +8,7 @@ class App extends Component {
 
     this.state = {
       counter : 99,
+      counterrrrr : 88,
     }
 
   }
@@ -17,6 +18,7 @@ class App extends Component {
         Hello World CMM341
         <br/>
         <h1>{this.state.counter}</h1>
+        <h2>{this.state.counterrrrr}</h2>
         <button type="button">Click Me!</button>
       </div>
     );
