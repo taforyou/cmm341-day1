@@ -18,11 +18,18 @@ class App extends Component {
     // ค่าเปลัี่ยนนะแต่ render() ไม่ทำงานมันจึงไม่ show ค่าใหม่
     //this.state.counter++
     //console.log(this.state.counter)
-    let temp = this.state.counter
-    temp++
+    let temp = this.state.counter;
+    temp++;
+    
     this.setState({
       counter : temp
     })
+
+    // อย่าทำเพราะเป็นการ Mutate state (จริงๆทำได้ แทนบรรทัดที่ 21>>26 เลย)
+    // this.setState({
+    //   counter : this.state.counter++
+    // })
+
     
   }
 
