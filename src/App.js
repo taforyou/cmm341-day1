@@ -35,7 +35,8 @@ class App extends Component {
   }
 
   handleOnChange (_e) {
-    console.log(_e.target.value)
+    //console.log(_e.target.value)
+    this.setState({ inputText : _e.target.value })
   }
 
   render() {
@@ -47,7 +48,8 @@ class App extends Component {
         <h2>{this.state.counterrrrr}</h2>
         <Button type="primary" onClick={() => this.handleOnAdd()}>Click Me!</Button>
         <br/>
-        <Input onChange={(e) => this.handleOnChange(e)} placeholder="Basic usage" />
+        <Input onChange={(e) => this.handleOnChange(e)} value={this.state.inputText} placeholder="Basic usage" defaultValue="ค่าเริ่มต้น"/>
+        <h1>{this.state.inputText}</h1>
       </div>
     );
   }
