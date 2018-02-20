@@ -15,7 +15,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Todo />
+        <Todo myColor="Red"/>
+        <Todo myColor="Green"/>
+        <Todo myColor="Blue"/>
         <Card style={{ width: 500 }}>
           <h1>To-do-list</h1>
           <div
