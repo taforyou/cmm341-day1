@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       counter : 0,
       counterrrrr : 88,
+      inputText : ''
     }
 
   }
@@ -31,7 +32,10 @@ class App extends Component {
     //   counter : this.state.counter++
     // })
 
-    
+  }
+
+  handleOnChange (_e) {
+    console.log(_e.target.value)
   }
 
   render() {
@@ -43,7 +47,7 @@ class App extends Component {
         <h2>{this.state.counterrrrr}</h2>
         <Button type="primary" onClick={() => this.handleOnAdd()}>Click Me!</Button>
         <br/>
-        <Input placeholder="Basic usage" />
+        <Input onChange={(e) => this.handleOnChange(e)} placeholder="Basic usage" />
       </div>
     );
   }
