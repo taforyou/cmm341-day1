@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Button from 'antd/lib/button';
 import './App.css';
+import { Input ,Button } from 'antd';
 
 class App extends Component {
   constructor(props) {
@@ -42,6 +42,8 @@ class App extends Component {
         <h1>{this.state.counter}</h1>
         <h2>{this.state.counterrrrr}</h2>
         <Button type="primary" onClick={() => this.handleOnAdd()}>Click Me!</Button>
+        <br/>
+        <Input placeholder="Basic usage" />
       </div>
     );
   }
