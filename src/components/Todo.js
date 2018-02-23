@@ -42,11 +42,45 @@ export class Todo extends Component {
     this.setState({ listItem, isLoading: false });
   }
 
+  async fetchPost (text) {
+    this.setState({isLoading : true});
+    const result = await fetch('https://5a8f8f77ae48ee0012de69a1.mockapi.io/todo', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content: text
+      }),
+    })
+
+    if (result.ok) {
+      // ท่านี้ก็ได้ดูดีกว่า 1
+      // let data = await result.json()
+      // let listItem = this.state.listItem.concat(data.content);
+      // this.setState({ listItem , isLoading : false })
+
+      // ท่านี้ก็ได้ดูดีกว่า 2
+      this.fetchGet();
+
+    }
+    
+  }
+
   submitList = () => {
+
+    this.fetchPost(this.state.inputText)
     this.setState({
-      listItem: this.state.listItem.concat([this.state.inputText]),
-      inputText: ""
-    });
+      inputText: ''
+    })
+
+    //console.log(this.state.listItem);
+    // ไม่ต่อ Mockup.io
+    // this.setState({
+    //   listItem: this.state.listItem.concat([this.state.inputText]),
+    //   inputText: ""
+    // });
   };
 
   deleteListAtIndex = index => {
