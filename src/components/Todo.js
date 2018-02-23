@@ -7,9 +7,20 @@ export class Todo extends Component {
 
     this.state = {
       inputText : '',
-      listItem: ["text 1223123", "text 1231232", "text 3123123"]
+      listItem: []
     }
 
+  }
+
+  submitList = () => {
+    this.setState({
+      listItem: this.state.listItem.concat([this.state.inputText]),
+      inputText: ''
+    })
+  }
+
+  handleChangeText = (_e) => {
+    this.setState({inputText: _e.target.value});
   }
 
   render() {
@@ -26,7 +37,7 @@ export class Todo extends Component {
             marginBottom: "10px"
           }}
         >
-          <Input addonAfter={<Button type="primary">Add</Button>} />{" "}
+          <Input onChange={(e) => this.handleChangeText(e)} value={this.state.inputText} addonAfter={<Button type="primary" onClick={() => this.submitList()}>Add</Button>} />
         </div>
         <List
           bordered
