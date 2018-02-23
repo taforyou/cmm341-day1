@@ -11,7 +11,7 @@ export class Todo extends Component {
     const FormItem = Form.Item;
 
     return (
-      <Card style={{ width: 500 }}>
+      <Card style={{ width: 500, backgroundColor : _color }}>
           <h1>To-do-list</h1>
           <div
             style={{

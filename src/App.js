@@ -6,7 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Todo />
+        <Todo myColor={'red'}/>
+        <Todo myColor={'green'}/>
+        <Todo myColor={'blue'}/>
       </div>
     );
   }
