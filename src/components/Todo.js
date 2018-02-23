@@ -19,8 +19,24 @@ export class Todo extends Component {
     })
   }
 
+  deleteListAtIndex = (index) => {
+    // ไม่ควรทำเพราะเป็นการ Render ใหม่ทั้ง State ถ้ามีเยอะก็ฉิบหายยย สิครับ
+    //this.state.listItem.splice(index, 1);
+    //this.setState({});
+
+    const result = this.state.listItem;
+    result.splice(index, 1);
+    this.setState({listItem: result});
+  }
+
   handleChangeText = (_e) => {
     this.setState({inputText: _e.target.value});
+  }
+
+  handleKeyPress = (_e) => {
+    if (_e.key === 'Enter') {
+      this.submitList();
+    }
   }
 
   render() {
@@ -37,15 +53,15 @@ export class Todo extends Component {
             marginBottom: "10px"
           }}
         >
-          <Input onChange={(e) => this.handleChangeText(e)} value={this.state.inputText} addonAfter={<Button type="primary" onClick={() => this.submitList()}>Add</Button>} />
+          <Input onKeyPress={(e) => this.handleKeyPress(e)} onChange={(e) => this.handleChangeText(e)} value={this.state.inputText} addonAfter={<Button type="primary" onClick={() => this.submitList()}>Add</Button>} />
         </div>
         <List
           bordered
           dataSource={this.state.listItem}
-          renderItem={item => (
+          renderItem={(item,index) => (
             <List.Item
               actions={[
-                <a>
+                <a onClick={() => this.deleteListAtIndex(index)}>
                   <Icon
                     type="close-circle"
                     style={{ fontSize: 16, color: "rgb(255, 145, 0)" }}
